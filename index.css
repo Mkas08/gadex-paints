@@ -1,0 +1,103 @@
+/* ============================================================
+   GADEX PAINTS — Global Styles & Cinematic Hero Animations
+   ============================================================ */
+
+/* --- Scrollbar Hiding --- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* --- Font Smoothing --- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   KEN BURNS CINEMATIC ZOOM ANIMATIONS
+   Three variants for visual variety across hero slides.
+   Each runs for the full slide duration (8s).
+   ============================================================ */
+
+/* Variant 1: Slow zoom from center — universal, safe default */
+@keyframes kenburns-center {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+/* Variant 2: Drift zoom toward top-left — creates upward energy */
+@keyframes kenburns-top-left {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-1.5%, -1%);
+  }
+}
+
+/* Variant 3: Drift zoom toward bottom-right — grounding, cinematic pull */
+@keyframes kenburns-bottom-right {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate(1%, 0.8%);
+  }
+}
+
+.hero-kenburns-center {
+  animation: kenburns-center 8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform;
+}
+
+.hero-kenburns-top-left {
+  animation: kenburns-top-left 8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform;
+}
+
+.hero-kenburns-bottom-right {
+  animation: kenburns-bottom-right 8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform;
+}
+
+/* ============================================================
+   HERO SLIDE PROGRESS BAR
+   A thin line that fills over the slide duration.
+   ============================================================ */
+@keyframes hero-progress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.hero-progress-bar {
+  animation: hero-progress 8s linear forwards;
+  transform-origin: left center;
+  will-change: transform;
+}
+
+/* ============================================================
+   ACCESSIBILITY: Reduced Motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns-center,
+  .hero-kenburns-top-left,
+  .hero-kenburns-bottom-right {
+    animation: none !important;
+  }
+  .hero-progress-bar {
+    animation: none !important;
+    transform: scaleX(1);
+  }
+}
