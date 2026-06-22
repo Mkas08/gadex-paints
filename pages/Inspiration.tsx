@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { INSPIRATION } from '../constants';
+import SEO from '../components/SEO';
 
 const container = {
   hidden: { opacity: 0 },
@@ -22,8 +23,23 @@ const itemVariant = {
 };
 
 const Inspiration = () => {
+  const inspirationSchema = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "GADEX Paints Inspiration Gallery",
+    "description": "Discover living rooms, dining rooms, bedrooms, and facades painted with GADEX Paints. Real interior design inspiration.",
+    "url": "https://gadexpaints.com/inspiration"
+  };
+
   return (
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <SEO 
+        title="Luxury Home Painting & Color Inspiration"
+        description="Explore real room galleries painted with GADEX Paints. Find interior design ideas and color combinations for modern living rooms, dining rooms, and bedrooms."
+        keywords="wall paint inspiration, living room color ideas, bedroom paint design, interior decoration Nigeria, luxury room paint gallery"
+        canonicalPath="/inspiration"
+        schema={inspirationSchema}
+      />
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

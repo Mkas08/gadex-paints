@@ -1,5 +1,8 @@
 import { Color, Product, InspirationItem, HeroSlide, StoreLocation } from './types';
 
+// Web3Forms Access Key for Gadexpaints@gmail.com
+export const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "a295d286-0529-4915-a97e-30d68460b7af";
+
 export const COLORS: Color[] = [
   { id: '1', name: 'Alabaster Dream', hex: '#F2F0E6', category: 'Neutral', mood: 'Calm', usage: 'Universal', description: 'A soft, warm off-white that brings serenity to any space.' },
   { id: '2', name: 'Midnight Velvet', hex: '#2C3E50', category: 'Cool', mood: 'Luxury', usage: 'Interior', description: 'Deep, dramatic blue-grey for statement walls.' },

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import { COLORS, HERO_SLIDES } from '../constants';
+import SEO from '../components/SEO';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -52,6 +53,62 @@ const Home = () => {
   const currentSlideData = HERO_SLIDES[currentSlide];
   const kenburnsClass = KENBURNS_CLASSES[currentSlide % KENBURNS_CLASSES.length];
 
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://gadexpaints.com/#organization",
+        "name": "GADEX Paints",
+        "url": "https://gadexpaints.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://gadexpaints.com/#logo",
+          "url": "https://gadexpaints.com/assets/logo.jpeg",
+          "caption": "GADEX Paints Logo"
+        },
+        "image": {
+          "@id": "https://gadexpaints.com/#logo"
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://gadexpaints.com/#localbusiness",
+        "name": "GADEX Paints Headquarters",
+        "image": "https://gadexpaints.com/assets/logo.jpeg",
+        "url": "https://gadexpaints.com",
+        "telephone": "+2348025852790",
+        "email": "Gadexpaints@gmail.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "France Road",
+          "addressLocality": "Kano",
+          "addressRegion": "Kano State",
+          "addressCountry": "NG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 12.0022,
+          "longitude": 8.5920
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      }
+    ]
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }} 
@@ -60,6 +117,13 @@ const Home = () => {
       transition={{ duration: 0.8 }}
       className="bg-white"
     >
+      <SEO 
+        title="Premium Paints, Coatings & Screeding Putty in Nigeria"
+        description="Discover GADEX Paints, Nigeria's premier manufacturer of high-quality emulsion, washable satin finish, gloss enamel, and POP screeding putty. Crafted for durability and premium aesthetics."
+        keywords="premium paint Nigeria, best paint brand Lagos Kano, luxury home painting Nigeria, emulsion paint, satin wall paint, gloss enamel, POP screeding putty Kano, Gadex Paints"
+        canonicalPath="/"
+        schema={homeSchema}
+      />
       {/* ============================================================
           CINEMATIC FULL-BLEED HERO — Ken Burns Treatment
           ============================================================ */}

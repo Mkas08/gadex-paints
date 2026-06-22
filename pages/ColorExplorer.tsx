@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { COLORS } from '../constants';
 import { Check, Info, Filter } from 'lucide-react';
 import { Color } from '../types';
+import SEO from '../components/SEO';
 
 const container = {
   hidden: { opacity: 0 },
@@ -36,8 +37,28 @@ const ColorExplorer = () => {
   // We use mix-blend-multiply to simulate paint on a wall
   const roomImage = "https://picsum.photos/id/1078/1600/900"; // A nice living room
 
+  const colorExplorerSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "GADEX Paints Virtual Color Explorer",
+    "description": "Interactive room painting visualizer. Discover and try GADEX Paints' curated paint collections in real-time.",
+    "url": "https://gadexpaints.com/colors",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "GADEX Paints",
+      "url": "https://gadexpaints.com"
+    }
+  };
+
   return (
     <div className="pt-20 h-screen flex flex-col md:flex-row overflow-hidden bg-gadex-stone">
+      <SEO 
+        title="Virtual Color Explorer & Room Visualizer"
+        description="Visualize paint colors in real-time. Try our Virtual Room Visualizer with shades like Alabaster Dream, Midnight Velvet, and Terracotta Soul by GADEX Paints."
+        keywords="paint color visualizer, virtual room painter, room visualizer tool, paint shades Nigeria, wall color ideas"
+        canonicalPath="/colors"
+        schema={colorExplorerSchema}
+      />
       
       {/* Visualizer Area (Right/Top) */}
       <div className="relative w-full md:w-2/3 h-[50vh] md:h-full bg-gray-200 order-1 md:order-2">

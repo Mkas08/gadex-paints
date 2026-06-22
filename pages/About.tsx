@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -54,6 +55,21 @@ const products = [
 ];
 
 const About = () => {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About GADEX Paints",
+    "description": "Learn about GADEX Paints' high-quality paint system, formulated with premium raw materials for durability, advanced leveling, and uniform smoothness.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "GADEX Paints",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gadexpaints.com/assets/logo.jpeg"
+      }
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -61,6 +77,13 @@ const About = () => {
       exit={{ opacity: 0 }}
       className="pt-32 pb-24 bg-gradient-to-b from-white via-gray-50/50 to-white"
     >
+      <SEO 
+        title="About Our Premium Paint System"
+        description="Learn about GADEX Paints' high-quality paint system, formulated with premium raw materials for durability, advanced leveling, and uniform smoothness."
+        keywords="Gadex paints factory, paint manufacturer Nigeria, paint system, durable wall finishes, Kano paint brand"
+        canonicalPath="/about"
+        schema={aboutSchema}
+      />
       {/* Hero Section */}
       <div className="max-w-5xl mx-auto px-6 text-center mb-24">
         <motion.div

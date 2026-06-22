@@ -2,8 +2,38 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { PRODUCTS } from '../constants';
 import { ArrowUpRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Products = () => {
+  const productsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "GADEX Paints Collections",
+    "description": "Premium finishes for every surface. From ultra-matte interiors to weather-resistant exteriors.",
+    "url": "https://gadexpaints.com/products",
+    "numberOfItems": PRODUCTS.length,
+    "itemListElement": PRODUCTS.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": product.name,
+        "image": `https://gadexpaints.com${product.image}`,
+        "description": product.description,
+        "brand": {
+          "@type": "Brand",
+          "name": "GADEX Paints"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://gadexpaints.com/products",
+          "priceCurrency": "NGN",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    }))
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -11,6 +41,13 @@ const Products = () => {
       exit={{ opacity: 0 }}
       className="pt-32 pb-20 bg-white"
     >
+      <SEO 
+        title="Premium Paint Collections - Emulsion, Satin & Gloss"
+        description="Browse GADEX Paints' range of premium coatings, including Standard Emulsion, Washable Satin Finish, and Gloss & Shine Enamel. Engineered for maximum coverage."
+        keywords="standard emulsion paint, washable satin paint, high-gloss enamel metal paint, wall coating Nigeria, Gadex products"
+        canonicalPath="/products"
+        schema={productsSchema}
+      />
        <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
