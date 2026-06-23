@@ -35,7 +35,7 @@ const ColorExplorer = () => {
 
   // Background style for the visualizer
   // We use mix-blend-multiply to simulate paint on a wall
-  const roomImage = "https://picsum.photos/id/1078/1600/900"; // A nice living room
+  const roomImage = "/assets/room-visualizer.png"; // A premium, realistic luxury living room
 
   const colorExplorerSchema = {
     "@context": "https://schema.org",
